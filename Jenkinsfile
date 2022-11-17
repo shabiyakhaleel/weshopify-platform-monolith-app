@@ -15,7 +15,8 @@ pipeline{
         }
         stage('building the source code'){
             steps{
-                echo 'building the code using maven build tool'
+                echo 'starting the code build'
+                sh 'mvn clean package -DskipTests=true'
             }
         }
 
