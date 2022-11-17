@@ -1,5 +1,3 @@
-server: 
- port: 5001
 spring: 
  thymeleaf: 
       cache: false
@@ -19,27 +17,19 @@ NotEmpty:
  #  level: 
   #    org.springframework: DEBUG
   
-#logging:
- # file:
-    #name: application.log
-  #  path: ${LOG_FILE_PATH:c:/weshopify-app}
-  #logback:
-   # rollingpolicy:
-      #max-file-size: 1
-      #max-history: 3
-    #  clean-history-on-start: true
-
-        
+logging:  file:    #name: application.log
+    path: c:/weshopify-app/  logback:    rollingpolicy:      #max-file-size: 1      #max-history: 3      clean-history-on-start: true
+        
+    
+        
 ---
 #Dev Environment Configuration
 spring: 
   datasource: 
      driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
-     #url: jdbc:${DB_TYPE:mysql}://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:shopifyme-customers}
-     url: jdbc:${DB_TYPE:mysql}://${DB_HOST:weshopify-platform-db.ccemvxjoftl8.ap-south-1.rds.amazonaws.com}:${DB_PORT:3306}/${DB_SCHEMA:weshopify_app}
+     url: jdbc:${DB_TYPE:mysql}://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:shopifyme-customers}
      username: ${DB_USER_NAME:root} 
-     #password: ${DB_USER_PASSWORD:root}
-     password: ${DB_USER_PASSWORD:Adance123$}
+     password: ${DB_USER_PASSWORD:root}
   jpa: 
     hibernate: 
        ddl-auto: update

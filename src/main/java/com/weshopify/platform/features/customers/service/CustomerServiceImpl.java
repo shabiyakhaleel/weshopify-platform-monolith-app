@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -40,6 +41,9 @@ public class CustomerServiceImpl implements CustomerService {
 	private static Map<Integer, CustomerBean> IN_MEMORY_DB = new HashMap<Integer, CustomerBean>();
 	
 	private CustomerDataRepo customerRepo;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 
 	@Autowired
@@ -69,6 +73,7 @@ public class CustomerServiceImpl implements CustomerService {
 		 */
 		Customer customerDomain = new Customer();
 		BeanUtils.copyProperties(customerBean, customerDomain);
+		customerDomain.setPassword(passwordEncoder.encode(customerBean.getPassword()));
 		customerDomain.setRole(rolesDataRepo.getById(1));
 		customerRepo.save(customerDomain);
 
