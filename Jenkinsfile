@@ -20,9 +20,10 @@ pipeline{
             }
         }
 
-        stage ('pushing the artifact to jfrog artifactor'){
+        stage ('download the artifact from jfrog artifactor'){
             steps{
                 echo "pushing the artifact to Jfrog Artifactory"
+                sh jfrog-server-conn.sh
             }
         }
     }
