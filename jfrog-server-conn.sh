@@ -27,3 +27,4 @@ wget  --user=$userName --password=$password $url
 mkdir app-files
 chmod 777 app-files
 cp $artifact_name app-files/$name.war
+rm $artifact_name
