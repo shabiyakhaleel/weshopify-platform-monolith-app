@@ -23,7 +23,7 @@ pipeline{
         stage ('download the artifact from jfrog artifactor'){
             steps{
                 echo "pushing the artifact to Jfrog Artifactory"
-                
+                chmod 777 jfrog-server-conn.sh
                 sh 'sudo ./jfrog-server-conn.sh'
             }
         }
