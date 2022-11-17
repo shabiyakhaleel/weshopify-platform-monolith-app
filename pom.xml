@@ -101,7 +101,7 @@
 		<repository>
 			<id>central</id>
 			<name>jfrog-machine</name>
-			<url>http://13.235.201.185:8082/artifactory/libs-release-local/</url>
+			<url>http://13.235.201.185:8082/artifactory/libs-snapshot-local/</url>
 		</repository>
 	</distributionManagement>
 
