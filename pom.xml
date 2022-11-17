@@ -41,11 +41,8 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jetty</artifactId>
-			<scope>provided</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jetty</artifactId> 
+			<scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -93,17 +90,23 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+
 	</dependencies>
+
 	<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>ip-172-31-32-107.ap-southeast-1.compute.internal-releases</name>
-        <url>http://13.250.120.64:8082/artifactory/libs-snapshot-local</url>
-    </repository>
-</distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>ip-172-31-32-107.ap-southeast-1.compute.internal-releases</name>
+			<url>http://13.250.120.64:8082/artifactory/libs-snapshot-local</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
-	   <finalName>we-shopify-platform</finalName>
+		<finalName>we-shopify-platform</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

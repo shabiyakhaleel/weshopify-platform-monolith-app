@@ -27,7 +27,7 @@ logging:  file:    #name: application.log
 spring: 
   datasource: 
      driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
-     url: jdbc:${DB_TYPE:mysql}://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:shopifyme-customers}
+     url: jdbc:${DB_TYPE:mysql}://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_SCHEMA:shopifyme_customers}
      username: ${DB_USER_NAME:root} 
      password: ${DB_USER_PASSWORD:root}
   jpa: 
