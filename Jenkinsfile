@@ -23,7 +23,7 @@ pipeline{
         stage('copying the docker and jfrog files to ansible'){
             steps{
                 echo 'copying the docker and jfrog files'
-                ssh(['Ansible-Machine']){
+                sshagent(['Ansible-Machine']){
                     sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/ci-cd-files'
                 }
             }
