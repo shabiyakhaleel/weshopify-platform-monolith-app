@@ -26,6 +26,8 @@ pipeline{
                 sshagent(['Ansible-Machine']){
                     sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
                     sh 'scp Dockerfile ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
+                    sh 'scp dockerplaybook.yml ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
+                    sh 'ansible-playbook -i ci-cd-files/dockerplaybook.yml'
                 }
             }
         }
