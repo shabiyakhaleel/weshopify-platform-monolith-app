@@ -24,8 +24,7 @@ pipeline{
             steps{
                 echo 'copying the docker and jfrog files'
                 sshagent(['Ansible-Machine']){
-                    sh 'chmod 777 ansible-admin@172.31.0.173:/ci-cd-files'
-                    sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/ci-cd-files'
+                    sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
                 }
             }
         }
