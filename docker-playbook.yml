@@ -1,0 +1,10 @@
+- name: docker-machine-config
+  hosts: docker-machine
+  become: 'yes'
+  become_user: 'docker-admin'
+  tasks:
+    - name: copy the docker file
+      copy: src=Dockerfile dest=./app-files
+
+    - name: copy the JfrogArtifactory Connection Script
+      copy: src=jfrog-server-conn.sh dest=./app-files
