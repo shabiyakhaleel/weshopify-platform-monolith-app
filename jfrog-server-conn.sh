@@ -25,6 +25,6 @@ url=$path/$artifact_name
 echo $url
 wget  --user=$userName --password=$password $url
 mkdir app-files
-chmod 777 app-files
-cp $artifact_name app-files/$name.war
+chmod 777 artifact
+cp $artifact_name artifact/$name.war
 rm $artifact_name
