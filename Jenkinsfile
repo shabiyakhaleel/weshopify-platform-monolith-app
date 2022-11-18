@@ -20,9 +20,12 @@ pipeline{
             }
         }
 
-        stage ('download the artifact from jfrog artifactor'){
+        stage('copying the docker and jfrog files to ansible'){
             steps{
-                echo "pushing the artifact to Jfrog Artifactory"                
+                echo 'copying the docker and jfrog files'
+                ssh(['Ansible-Machine']){
+                    sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/ci-cd-files'
+                }
             }
         }
     }
