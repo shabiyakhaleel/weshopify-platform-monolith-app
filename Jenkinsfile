@@ -27,7 +27,13 @@ pipeline{
                     sh 'scp jfrog-server-conn.sh ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
                     sh 'scp Dockerfile ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
                     sh 'scp docker-playbook.yml ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files'
-                    sh 'ansible-playbook -i ci-cd-files/docker-playbook.yml'
+                    
+                    sh '''
+                     ssh -tt ansible-admin@172.31.0.173 << EOF
+                      ansible-playbook  ci-cd-files/docker-playbook.yml
+                     exit
+                     EOF
+                    '''
                 }
             }
         }
