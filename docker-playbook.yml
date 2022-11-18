@@ -10,7 +10,10 @@
       copy: src=jfrog-server-conn.sh dest=./app-files
 
     - name: change the execuatble permissions of the JfrogConn Script
-      shell: chmod +x /app-files/jfrog-server-conn.sh
+      shell: chmod +x ./app-files/jfrog-server-conn.sh
 
     - name: change the executable permissions of the Dockerfile
-      shell: chmod +x /app-files/Dockerfile
+      shell: chmod +x ./app-files/Dockerfile
+
+    - name: execute the JfrogArtifactory conn Script
+      shell: sh ./app-files/jfrog-server-conn.sh
