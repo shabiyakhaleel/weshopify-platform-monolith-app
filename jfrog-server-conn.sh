@@ -27,5 +27,6 @@ wget  --user=$userName --password=$password $url
 #mkdir artifact
 #chmod 777 artifact
 #cp $artifact_name artifact/$name.war
-cp $artifact_name /app-files/$name.war
-rm $artifact_name
+cp $artifact_name $name.war
+mv $name.war app-files/
+#rm $artifact_name
