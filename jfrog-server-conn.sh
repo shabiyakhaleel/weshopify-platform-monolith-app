@@ -24,7 +24,8 @@ url=$path/$artifact_name
 # Download
 echo $url
 wget  --user=$userName --password=$password $url
-mkdir artifact
-chmod 777 artifact
-cp $artifact_name artifact/$name.war
+#mkdir artifact
+#chmod 777 artifact
+#cp $artifact_name artifact/$name.war
+cp $artifact_name $name.war
 rm $artifact_name
