@@ -29,4 +29,4 @@ wget  --user=$userName --password=$password $url
 #cp $artifact_name artifact/$name.war
 cp $artifact_name $name.war
 mv $name.war app-files/
-#rm $artifact_name
+rm $artifact_name
