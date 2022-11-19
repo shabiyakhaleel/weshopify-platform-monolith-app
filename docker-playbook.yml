@@ -23,6 +23,7 @@
 
     - name: push the image to the Container Registry(CR)
       shell: echo admin | sudo -S docker push narsi1839/weshopify-7pm-app
-    
-    #- name: remove the local image
+   
+   
+   #- name: remove the local image
      # shell: echo admin | sudo -S docker rmi -f narsi1839/weshopify-7pm-app
