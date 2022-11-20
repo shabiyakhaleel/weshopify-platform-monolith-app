@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: weshopify-app
+ labels: 
+   app: weshopify-app
+ namespace: weshopify-app-ns  
+spec: 
+  template: 
+   metadata: 
+    labels:
+      app: weshopify-app
+   spec: 
+    containers: 
+     - name: weshopify-app
+       #image: narsi1839/weshopify-app-img
+       image: narsi1839/weshopify-app-image-without-email-domain
+       ports: 
+        - containerPort: 5001
+       env:
+        - name: DB_HOST
+          #value: weshopify-app-db-service
+          valueFrom: 
+           configMapKeyRef: 
+            name: weshopify-app-config-map #config-map-name
+            key: DB_HOST_SERVICE_NAME_VALUE 
+        - name: DB_PORT
+          #value: "3306"
+          valueFrom: 
+           configMapKeyRef: 
+            name: weshopify-app-config-map #config-map-name
+            key: DB_PORT_VALUE
+        - name: DB_SCHEMA
+          #value: weshopify-app
+          valueFrom: 
+           configMapKeyRef: 
+            name: weshopify-app-config-map #config-map-name
+            key: DB_SCHEMA_VALUE
+  replicas: 2
+  selector: 
+   matchLabels: 
+     app: weshopify-app
+   
