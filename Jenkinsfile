@@ -36,6 +36,13 @@ pipeline{
                     '''
                 }
             }
-        }
+        }//CI Completed
+
+        //CD will trigger
+        stage("trigger application deploy job"){
+          steps{
+              build job: 'weshopify-platform-app-continous-deployment'
+          }
+      }
     }
 }
