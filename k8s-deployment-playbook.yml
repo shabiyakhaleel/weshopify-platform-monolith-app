@@ -5,5 +5,6 @@
   tasks:
     - name: copy the k8s manifest files from anisble to k8s-master
       copy: src=./k8s-db-files dest=.
+    
     - name: delete the k8s-manifest files from ansible machine
-      sh : rm -rf ./k8s-db-files
+      shell: rm -rf ./k8s-db-files
