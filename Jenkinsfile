@@ -14,7 +14,7 @@ pipeline{
             steps{
                 echo 'copying the k8s manifest files'
                 sshagent(['Ansible-Machine']){
-                    sh 'scp db-manifest-files/*.* ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files/db-manifest-files'
+                    sh 'scp db-manifest-files/*.* ansible-admin@172.31.0.173:/home/ansible-admin/ci-cd-files/'
                 }
             }
         }//CD is completed
