@@ -15,8 +15,8 @@ spec:
    spec: 
     volumes: 
      - name: weshpify-app-db-volume
-       persistentVolumeClaim: 
-        claimName: weshopify-db-pvc
+       #persistentVolumeClaim: 
+        #claimName: weshopify-db-pvc
        #hostPath: 
         #path: /opt/weshopify-db-storage
     containers: 
@@ -24,9 +24,9 @@ spec:
        image: mysql
        ports: 
         - containerPort: 3306
-       volumeMounts:
-         - name: weshpify-app-db-volume
-           mountPath: /var/lib/mysql
+       #volumeMounts:
+        # - name: weshpify-app-db-volume
+         #  mountPath: /var/lib/mysql
        env: 
         - name: MYSQL_ROOT_PASSWORD
           #value: root
