@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+ name: weshopify-app-db-deployment
+ labels: 
+  app: weshopify-app-db
+ namespace: weshopify-db-ns 
+
+spec:
+
+ template: 
+   metadata: 
+     labels: 
+       app: weshopify-app-db-pod
+   spec: 
+    volumes: 
+     - name: weshpify-app-db-volume
+       persistentVolumeClaim: 
+        claimName: weshopify-db-pvc
+       #hostPath: 
+        #path: /opt/weshopify-db-storage
+    containers: 
+     - name: weshopify-app-db
+       image: mysql
+       ports: 
+        - containerPort: 3306
+       volumeMounts:
+         - name: weshpify-app-db-volume
+           mountPath: /var/lib/mysql
+       env: 
+        - name: MYSQL_ROOT_PASSWORD
+          #value: root
+          valueFrom: 
+           secretKeyRef: 
+            name: weshopify-db-config-secrete
+            key: DB_PASSWORD_VALUE
+        - name: MYSQL_DATABASE
+          #value: weshopify-app
+          valueFrom: 
+           configMapKeyRef: 
+            name: weshopify-db-config-map
+            key: DB_SCHEMA_VALUE
+ selector: 
+    matchLabels: 
+     app: weshopify-app-db-pod
+ #No Need of replicas as a copy of the pod
+ # will be deployed on each and every available node
+ #replicas: 2

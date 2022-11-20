@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata: 
+ name: weshopify-app-db-service
+ labels: 
+  app: weshopify-app-db-service
+ namespace: weshopify-db-ns 
+spec:
+ #type: NodePort
+ ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+ selector: 
+  app: weshopify-app-db-pod
+
