@@ -4,4 +4,4 @@
   become_user: 'k8s-admin'
   tasks:
     - name: copy the k8s manifest files from anisble to k8s-master
-      copy: src=./k8s-db-files dest=./k8s-db-files
+      copy: src=./k8s-db-files dest=.
