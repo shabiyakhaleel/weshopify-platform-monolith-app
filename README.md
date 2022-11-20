@@ -1,1 +1,0 @@
-# weshopify-platform-monolith-app
