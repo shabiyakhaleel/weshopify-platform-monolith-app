@@ -20,6 +20,7 @@ pipeline{
                     sh '''
                       ssh -tt ansible-admin@172.31.0.173 << EOF
                       ansible-playbook  ci-cd-files/k8s-deployment-playbook.yml
+                      rm -rf ./k8s-db-files
                       exit
                      EOF
                     '''
