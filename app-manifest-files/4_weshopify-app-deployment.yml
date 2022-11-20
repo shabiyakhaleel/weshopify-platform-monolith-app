@@ -14,9 +14,9 @@ spec:
     containers: 
      - name: weshopify-app
        #image: narsi1839/weshopify-app-img
-       image: narsi1839/weshopify-app-image-without-email-domain
+       image: narsi1839/weshopify-7pm-app:latest
        ports: 
-        - containerPort: 5001
+        - containerPort: 8080
        env:
         - name: DB_HOST
           #value: weshopify-app-db-service

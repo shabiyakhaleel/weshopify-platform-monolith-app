@@ -3,5 +3,15 @@
   become: 'yes'
   become_user: 'k8s-admin'
   tasks:
-    - name: copy the k8s manifest files from anisble to k8s-master
+    - name: copy the k8s db manifest files from anisble to k8s-master
       copy: src=./k8s-db-files dest=.
+    - name: apply the k8s db manifect files
+      shell: echo admin | sudo -S kubectl apply -f ./k8s-db-file
+
+    - name: copy the k8s app manifect files from ansible to k8s-master
+      copy: src=./k8s-app-files dest=.
+    
+    - name: apply the k8s app manifest files
+      shell: echo admin | sudo -S kubectl apply -f ./k8s-app-files
+
+    
